@@ -9,13 +9,24 @@ const userSchema = new Schema(
 		},
 		email: String,
 		password: String,
+		profilePicture: {
+			type: String,
+			default: '../assets/userLogo.png'
+		},
+		city: String,
+		bookmarkList:[
+			{
+				type: Schema.Types.ObjectId,
+				ref: "House"
+			},
+		],
 	},
 	{
 		// this second object adds extra properties: `createdAt` and `updatedAt`
 		timestamps: true,
 	}
-)
+);
 
 const User = model("User", userSchema)
 
-module.exports = User
+module.exports = User;
