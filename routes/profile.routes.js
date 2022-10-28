@@ -43,7 +43,7 @@ router.put('/', isAuthenticated, uploader.single('profilePicture'), async (req, 
             algorithm: "HS256",
             expiresIn: "2d",
         });
-        //console.log(profilePicture)
+        console.log(profilePicture)
         console.log(user)
         res.status(200).json({
             message: 'File successfully uploaded',
