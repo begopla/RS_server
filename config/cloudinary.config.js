@@ -12,7 +12,7 @@ const storage = new CloudinaryStorage({
     cloudinary,
     params: {
         allowed_format: [ 'jpg', 'png '],
-        folder: 'find-a-market'
+        folder: 'RS_marketplace'
     }
 })
 

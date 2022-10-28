@@ -2,7 +2,9 @@ const {Schema, model} = require("mongoose");
 
 const houseSchema = new Schema(
 {
-    name: {type: String, required: true}, 
+    name: {type: String, 
+        //required: true
+    }, 
     imageCover: {
         type: String, 
         default: 'https://www.sinrumbofijo.com/wp-content/uploads/2016/05/default-placeholder.png'
@@ -10,7 +12,7 @@ const houseSchema = new Schema(
     type: {
         type: String,
         enum: ["Flat", "House or chalet", "Rustic house"],
-        required: true
+       // required: true
     },
     typeOfFlat:{
         type: String,
@@ -21,31 +23,32 @@ const houseSchema = new Schema(
         ref: "User"
     },
     description: {
-        type:String,
-        required: true
+        type: String,
+       // required: true
     },
     address:{
-        coordinates: [Number],
-        required: true
+        coordinates: [Number, Number],
+        city: String
+
     },
     dateFrom: {
         type: Date,
-        required: true
+      //  required: true
     },
     floor: Number,
     showAddress:{
         type: String,
-        enum: ["NoAddress", "FullAddress", "PartialAdsress" ],
-        required: true
+        enum: ["NoAddress", "FullAddress", "PartialAddress" ],
+     //   required: true
     },
     price: {
         type: Number, 
-        required: true
+      //  required: true
     },
     deposit: {
         type: String,
         enum:["1 month", "2 months", "3 months"],
-        required: true
+       //required: true
     },
     preferredContact: {
         type: String,
@@ -57,15 +60,15 @@ const houseSchema = new Schema(
     },
     size: {
         type: Number,
-        required: true
+       // required: true
     },
     bedrooms: {
         type: Number,
-        required: true,
+       // required: true,
     },
     bathrooms: {
         type: Number,
-        required: true,
+      //  required: true,
     },
     orientation:{
         type:String,
@@ -74,19 +77,18 @@ const houseSchema = new Schema(
     equipment:{
         type: String,
         enum:["Unequipped kitchen and house without furniture", "Equipped kitchen and house without furniture","Equipped kitchen and furnished house"],
-        required: true
+       // required: true
     },
     elevator: {
         type: Boolean,
-        required: true
+        //required: true
     },
     energyCertificate:{
         type: String,
         enum:["not yet available", "A", "B", "C", "D","E", "F", "G","In process", "Exempt property"],
-        required: true
     },
-    otherfeatures:{
-        type: String,
+    otherFeatures:{
+        type: [String],
         enum: ["Build-in cabinets", "Air-conditioning", "Terrace", "Balcony", "Storage room", "Parking place", "Swimming pool", "Green area"]
     },
     maxNumTenants:Number,
@@ -95,11 +97,9 @@ const houseSchema = new Schema(
     reducedMobility: Boolean,
     visitsNeeded: {
         type:Boolean,
-        required: true
     },
     photosNeeded: {
         type: Boolean,
-        required: true
     }
 });
 

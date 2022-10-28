@@ -6,7 +6,7 @@ const mongoose = require("mongoose")
 // If no env has been set, we dynamically set it to whatever the folder name was upon the creation of the app
 
 const MONGO_URI =
-	process.env.MONGODB_URI || "mongodb://localhost/my-project-name"
+	process.env.MONGODB_URI || "mongodb://localhost/RS-marketplace"
 
 mongoose
 	.connect(MONGO_URI)
