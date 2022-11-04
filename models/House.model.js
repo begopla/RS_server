@@ -11,52 +11,20 @@ const houseSchema = new Schema(
     },
     type: {
         type: String,
-        enum: ["Flat", "House or chalet", "Rustic house"],
+        enum: ["Apartment", "Chalet", "Rustic house", ],
        // required: true
     },
     typeOfFlat:{
         type: String,
-        enum:["Flat", "Penthouse", "Duplex", "Studio/Loft"]
+        enum:["Apartment", "Penthouse", "Duplex", "Studio", "Loft"]
     },
     author: {
         type: Schema.Types.ObjectId, 
         ref: "User"
     },
-    description: {
-        type: String,
-       // required: true
-    },
-    address:{
-        coordinates: [Number, Number],
-        city: String
-
-    },
-    dateFrom: {
-        type: Date,
-      //  required: true
-    },
-    floor: Number,
-    showAddress:{
-        type: String,
-        enum: ["NoAddress", "FullAddress", "PartialAddress" ],
-     //   required: true
-    },
     price: {
         type: Number, 
       //  required: true
-    },
-    deposit: {
-        type: String,
-        enum:["1 month", "2 months", "3 months"],
-       //required: true
-    },
-    preferredContact: {
-        type: String,
-        enum: ["email", "phone"]
-    },
-    condition:{
-        type: String,
-        enum:["toReform", "goodCondition"]
     },
     size: {
         type: Number,
@@ -70,9 +38,41 @@ const houseSchema = new Schema(
         type: Number,
       //  required: true,
     },
+    condition:{
+        type: String,
+        enum:["New", "GoodCondition","ToReform", "Reformed"]
+    },
     orientation:{
         type:String,
         enum:["Exterior", "Inside", "North", "South", "East", "West"]
+    },
+    description: {
+        type: String,
+        // required: true
+    },
+    dateFrom: {
+        type: Date,
+      //  required: true
+    },
+    deposit: {
+        type: String,
+        enum:["1 month", "2 months", "3 months"],
+       //required: true
+    },
+    address:{
+        coordinates: [Number, Number],
+        city: String
+
+    },
+    floor: Number,
+    showAddress:{
+        type: String,
+        enum: ["NoAddress", "FullAddress", "PartialAddress" ],
+     //   required: true
+    },
+    preferredContact: {
+        type: String,
+        enum: ["email", "phone"]
     },
     equipment:{
         type: String,
