@@ -14,7 +14,7 @@ const houseSchema = new Schema(
         enum: ["Apartment", "Chalet", "Rustic house", ],
        // required: true
     },
-    typeOfFlat:{
+    apartmentType:{
         type: String,
         enum:["Apartment", "Penthouse", "Duplex", "Studio", "Loft"]
     },
